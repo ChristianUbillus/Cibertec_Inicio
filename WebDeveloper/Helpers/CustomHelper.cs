@@ -10,31 +10,28 @@ namespace WebDeveloper.Helpers
 {
     public static class CustomHelper
     {
-        private static string GetHtmlForPrice(double price)
-        {
-            return price == 0.0 ? "<span>Free!!!</span>" : $"<span>{price}</span>";
-        }
-        private static string GetHtmlForDateTime(DateTime? Date)
-        {
-            return Date == null ? "<span>Free!!!</span>" : $"<span>{Date}</span>";
-        }
-
         public static IHtmlString DisplayPriceStatic(double price)
         {
             return new HtmlString(GetHtmlForPrice(price));
         }
+
         public static IHtmlString DisplayPriceExtension(this HtmlHelper helper, double price)
         {
             return new HtmlString(GetHtmlForPrice(price));
         }
-
-        public static IHtmlString DisplayDateOrNull(this HtmlHelper helper, DateTime? Date)
+        private static string GetHtmlForPrice(double price)
         {
-            return new HtmlString(GetHtmlForDateTime(Date));
+            return price == 0.0 ? "<span>Free!!!</span>" : $"<span>{price.ToString("C")}</span>";
         }
-        public static IHtmlString DisplayDateOrNullExtension(this HtmlHelper helper, DateTime? Date)
+
+        public static IHtmlString DisplayDateOrNullExtension(this HtmlHelper helper, DateTime? date)
         {
-            return new HtmlString(GetHtmlForDateTime(Date));
+            return new HtmlString(GetDateHtml(date));
+        }
+
+        private static string GetDateHtml(DateTime? date)
+        {            
+            return date.HasValue ? $"<span>{date.Value.ToString("dd-mm-yyyy")}</span>" : "None";
         }
     }
 }
