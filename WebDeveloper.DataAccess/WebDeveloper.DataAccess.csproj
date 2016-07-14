@@ -55,9 +55,8 @@
   <ItemGroup>
     <Compile Include="AutomapperConfig.cs" />
     <Compile Include="BaseDataAccess.cs" />
-    <Compile Include="ClientData.cs" />
     <Compile Include="IDataAccess.cs" />
-    <Compile Include="ProductData.cs" />
+    <Compile Include="PersonRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebContextDb.cs" />
   </ItemGroup>
@@ -70,9 +69,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="Web.config" />
-    <None Include="Web.Debug.config" />
-    <None Include="Web.Release.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

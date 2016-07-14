@@ -21,7 +21,7 @@ namespace WebDeveloper.DataAccess
         {
             using (var dbContext = new WebContextDb())
             {
-                return dbContext.clients.ToList();
+                return dbContext.Cliente.ToList();
             }
         }
     }
